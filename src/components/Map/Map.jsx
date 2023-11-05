@@ -11,7 +11,7 @@ export default function Map( { setCoordinates, setBounds, coordinates} ) {
 const classes = useStyles();
 const isMobile = useMediaQuery('(min-width:600px)');
 
-// const coordinates = {lat: 12.798849, lng:77.703882 };
+// const coordinates = {lat: 11.798849, lng:77.703882 };
  
   return (
     <div className={classes.mapContainer}>
@@ -25,6 +25,7 @@ const isMobile = useMediaQuery('(min-width:600px)');
           onChange={(e) => {
             console.log(e); 
              setCoordinates({ lat: e.center.lat, lng: e.center.lng})
+             console.log(coordinates);
           }}
           // onChildClick={''}
           >

@@ -13,7 +13,7 @@ export default function App() {
 
   const [places, setPlaces]=useState([]);
 
-  const[coordinates, setCoordinates] = useState({lat: 12.798849, lng:77.703882});
+  const[coordinates, setCoordinates] = useState({lat: 11.798859, lng:77.703882});
   const[bounds, setBounds]= useState(null);
 
   // useEffect(()=>{
