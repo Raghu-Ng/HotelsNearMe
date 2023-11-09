@@ -19,13 +19,15 @@ const isMobile = useMediaQuery('(min-width:600px)');
           bootstrapURLKeys={{key:'AIzaSyC_0pJk1fstlFZX0d7oM7wHzEMHBgPIPdA'}}
           defaultCenter={coordinates}
           center={coordinates}
-          defaultZoom={14}
+          defaultZoom={16}
           margin={[50, 50, 50, 50]}
           // options={''}
-          onChange={(e) => {
-            console.log(e); 
+          onChange={(e) => { 
              setCoordinates({ lat: e.center.lat, lng: e.center.lng})
-             console.log(coordinates);
+             const sw = { lat: e.bounds.sw.lat, lng: e.bounds.sw.lng };
+             const ne = { lat: e.bounds.ne.lat, lng: e.bounds.ne.lng };
+
+             setBounds({ sw, ne });
           }}
           // onChildClick={''}
           >

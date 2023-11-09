@@ -4,17 +4,17 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import usestyles from './styles';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
-export default function List() {
+export default function List({places}) {
 
   const classes = usestyles();
   const [type, setType] = useState("resturants");
   const [rating, setRating] = useState();
 
-  const places = [
-    {name:'Thanduri Chai'},
-    {name:'Coffe Cafe'},
-    {name:'ragi Nadu'}
-              ];
+  // const places = [
+  //   {name:'Thanduri Chai'},
+  //   {name:'Coffe Cafe'},
+  //   {name:'ragi Nadu'}
+              // ];
 
   return (
 
