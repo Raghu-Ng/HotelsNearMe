@@ -13,4 +13,11 @@ export default makeStyles(() => ({
   pointer: {
     cursor: 'pointer',
   },
+
+  ratingContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  }
+  
 }));
