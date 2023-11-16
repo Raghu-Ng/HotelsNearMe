@@ -11,10 +11,16 @@ export default function PlaceDetails({place, selected, refProp}) {
   const classes= useStyles();
   
   useEffect(() => {
-    if (selected && refProp) {
-      refProp.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (selected && refProp && refProp.current) {
+      const elementPosition = refProp.current.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth',
+      });
     }
   }, [selected, refProp]);
+  
+  
   
   // console.log(place);
   return (
