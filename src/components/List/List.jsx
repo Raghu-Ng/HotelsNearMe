@@ -14,7 +14,7 @@ import PlaceDetails from '../PlaceDetails/PlaceDetails';
 export default function List({ places, childClicked, isLoading, type, setType, rating, setRating }) {
   const classes = usestyles();
   const [elRefs, setElRefs] = useState([]);
-
+  console.log("childclicked",childClicked)
   const createRefs = useCallback(() => {
     setElRefs((refs) =>
       Array(places?.length)
@@ -26,7 +26,7 @@ export default function List({ places, childClicked, isLoading, type, setType, r
   useEffect(() => {
     createRefs();
   }, [createRefs, places]);
-
+ console.log("places",places)
   const scrollToPlace = (index) => {
     if (elRefs[index]?.current) {
       elRefs[index].current.scrollIntoView({
@@ -35,6 +35,16 @@ export default function List({ places, childClicked, isLoading, type, setType, r
       });
     }
   };
+
+
+  useEffect(()=>{
+    if(childClicked){
+      const i = places.findIndex(object => {
+        return object.location_id === childClicked.location_id;
+      })
+      scrollToPlace(i)
+    }
+  },[childClicked])
 
   return (
     <div className={classes.container}>
@@ -69,6 +79,7 @@ export default function List({ places, childClicked, isLoading, type, setType, r
                 <div
                   ref={elRefs[i]}
                   onClick={() => {
+                    console.log("im am been clicked")
                     scrollToPlace(i);
                   }}
                 >

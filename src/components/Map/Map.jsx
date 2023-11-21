@@ -12,7 +12,7 @@ const classes = useStyles();
 const isDesktop = useMediaQuery('(min-width:600px)');
 
 // const coordinates = {lat: 11.798849, lng:77.703882 };
- 
+  console.log("places",places)
   return (
     <div className={classes.mapContainer}>
       <GoogleMapReact
@@ -29,7 +29,10 @@ const isDesktop = useMediaQuery('(min-width:600px)');
 
              setBounds({ sw, ne });
           }}
-          onChildClick={(child) => setChildClicked(places[child])}
+          onChildClick={(child) => {
+            console.log("clicked",)
+            setChildClicked(places[child])}
+            }
 
           >
             {places?.map((place, i)=>(
